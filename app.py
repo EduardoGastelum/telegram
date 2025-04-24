@@ -11,6 +11,9 @@ TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 OPENAI_KEY      = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
+# Enable debug logging
+logging.basicConfig(level=logging.DEBUG)
+app.logger.setLevel(logging.DEBUG)
 bot = telegram.Bot(token=TELEGRAM_TOKEN)
 
 @app.route("/webhook", methods=["POST"])
